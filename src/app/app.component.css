@@ -1,0 +1,45 @@
+#wrapper {
+  width: 40%;
+  margin: auto;
+}
+
+.menu {
+  display: block;
+  width: 100%;
+  margin: 5px;
+  text-align: center;
+}
+
+.menu span {
+  display: inline-block;
+  background-color: #770707;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: large;
+  width: 100%;
+
+}
+
+input {
+  display: inline-block;
+  border-radius: 5px;
+  border-color: #000000;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.search {
+  margin: 25px;
+  width: 100%;
+}
+
+.results {
+  margin: 25px;
+  width: 100%;
+}
+
+.label {
+  width: 30%;
+}
