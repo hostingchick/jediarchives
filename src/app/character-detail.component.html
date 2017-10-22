@@ -1,0 +1,26 @@
+<div class="result">
+  <dl>
+    <dt>Character</dt>
+    <dd>{{name}}</dd>
+    <dt>Height (cm)</dt>
+    <dd>{{height}}</dd>
+    <dt>Hair Color</dt>
+    <dd>{{hair_color}}</dd>
+    <dt>Skin Color</dt>
+    <dd>{{skin_color}}</dd>
+    <dt>Eye Color</dt>
+    <dd>{{eye_color}}</dd>
+    <dt>Birth Year</dt>
+    <dd>{{birth_year}}</dd>
+    <dt>Gender</dt>
+    <dd>{{gender}}</dd>
+    <dt>Homeworld</dt>
+    <dd>{{homeworld}}</dd>
+    <dt>Species</dt>
+    <dd *ngFor="let specy of " + {{species}}>{{specy}}</dd>
+    <dt>Starships</dt>
+    <dd *ngFor="let ship of "+ {{starships}}>{{ship}}</dd>
+    <dt>Vehicles</dt>
+    <dd *ngFor="let v of " + {{vehicles}}>{{v}}</dd>
+  </dl>
+</div>

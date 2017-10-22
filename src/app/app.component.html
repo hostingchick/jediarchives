@@ -6,31 +6,7 @@
   <div class="menu" *ngFor="let search of searches" (click)="onSelect(search)">
     <span>{{search.name}}</span>
   </div>
-
-  <div class="search">
-    <span class="label">Character:</span>
-    <input type="text" [(ngModel)]="character.name" placeholder="C-3PO">
-  </div>
-  <div class="search">
-    <span class="label">Planet:</span>
-    <input type="text" [(ngModel)]="planet.name" placeholder="Onderon">
-  </div>
-  <div class="search">
-    <span class="label">Species:</span>
-    <input type="text" [(ngModel)]="species.name" placeholder="Wookiee">
-  </div>
-  <div class="search">
-    <span class="label">Starship Name:</span>
-    <input type="text" [(ngModel)]="starship.name" placeholder="Star Destroyer">
-  </div>
-  <div class="search">
-    <span class="label">Vehicle:</span>
-    <input type="text" [(ngModel)]="vehicle.name" placeholder="Speeder">
-  </div>
-
-  <div class="results">
-    <p>Search URL Is:  {{searchUrl}}</p>
-
-    <p> Character Name: {{character.name}}</p>
+  <div>
+    <character-detail [character]="selectedCharacter"></character-detail>
   </div>
 </div>
