@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-
+import { Character } from './character';
+import { Planet } from './planet';
+import { Species } from './species';
+import { Starship } from './starship';
+import { Vehicle } from './vehicle';
 
 export class SearchInfo {
   name: string;
@@ -15,16 +19,22 @@ const SEARCHLIST: SearchInfo[] = [
 ];
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: 'search',
+  templateUrl: './search.component.html',
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class SearchComponent {
   title = 'The Jedi Archives';
+  searchUrl = '';
   searchoption: SearchInfo = {
     name: '',
     option: ''
   };
   searches = SEARCHLIST;
+
+
+  onSelect(search): void {
+    this.searchUrl = 'https://swapai.co/api/' + search.option;
+  }
 }

@@ -3,10 +3,8 @@
   <h1>Welcome to {{title}}!</h1>
   <p>Please select a category you would like to search.</p>
 
-  <div class="menu" *ngFor="let search of searches" (click)="onSelect(search)">
-    <span>{{search.name}}</span>
+  <div class="menu" *ngFor="let search of searches">
+    <span><a routerLink="['/search', searchoption.option]">{{search.name}}</a></span>
   </div>
-  <div>
-    <character-detail [character]="selectedCharacter"></character-detail>
-  </div>
+
 </div>
