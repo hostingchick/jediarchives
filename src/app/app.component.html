@@ -4,7 +4,7 @@
   <p>Please select a category you would like to search.</p>
 
   <div class="menu" *ngFor="let search of searches">
-    <span><a routerLink="['/search', searchoption.option]">{{search.name}}</a></span>
+    <span><a [routerLink]="['search', search.option]">{{search.name}}</a></span>
   </div>
 
 </div>
