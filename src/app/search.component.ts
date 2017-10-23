@@ -54,8 +54,8 @@ export class SearchComponent {
       .map(res => res.json())
       .subscribe(
         data => {
-          this.results = JSON.stringify(data['results']);
-          return JSON.parse(this.results);
+          this.results = JSON.parse(data.results);
+          return this.results;
          },
         err => { console.log('Something went awry!'); }
       );
