@@ -6,5 +6,5 @@
   <div class="menu" *ngFor="let search of searches">
     <span><a [routerLink]="['search', search.option]">{{search.name}}</a></span>
   </div>
-
+  <router-outlet></router-outlet>
 </div>

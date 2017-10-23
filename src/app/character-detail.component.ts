@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Character } from './character';
+import { Characters } from './characters';
 
 @Component({
   selector: 'character-detail',
@@ -7,6 +7,6 @@ import { Character } from './character';
   styleUrls: ['./app.component.css']
 })
 export class CharacterDetailComponent {
-  @Input() character: Character;
+  @Input() character: Characters;
 
 }

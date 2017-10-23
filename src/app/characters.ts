@@ -1,4 +1,4 @@
-export class Character {
+export class Characters {
   name: string;
   height: string;
   mass: string;

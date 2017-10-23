@@ -13,33 +13,63 @@
 .menu span {
   display: inline-block;
   background-color: #770707;
-  color: #ffffff;
+  color: #fff;
   border-radius: 5px;
   padding: 10px 15px;
   font-weight: bold;
   font-size: large;
   width: 100%;
-
+  border: 1px solid #000;
 }
 
 .menu span a {
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
   text-weight: bold;
   text-transform: uppercase;
 }
 
+.menu span:hover a {
+  text-decoration: none;
+  color: #000;
+  text-weight: bold;
+  text-transform: uppercase;
+}
+
+.menu span:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #770707;
+  text-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid #000;
+}
+
 input {
-  display: inline-block;
   border-radius: 5px;
   border-color: #000000;
   padding: 10px 15px;
   width: 100%;
 }
 
+button {
+  width: auto;
+  position: relative;
+  float: right;
+  padding: 15px 25px;
+  background-color: #770707;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: large;
+  text-transform: uppercase;
+  border-color: #000;
+  margin: 10px;
+}
+
 .search {
-  margin: 25px;
   width: 100%;
+  margin-top: 25px;
 }
 
 .results {
@@ -49,4 +79,5 @@ input {
 
 .label {
   width: 30%;
+  display: inline;
 }

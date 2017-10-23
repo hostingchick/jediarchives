@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { Character } from './character';
-import { Planet } from './planet';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
+import { Characters } from './characters';
+import { Planets } from './planets';
 import { Species } from './species';
-import { Starship } from './starship';
-import { Vehicle } from './vehicle';
+import { Starships } from './starships';
+import { Vehicles } from './vehicles';
+
 
 export class SearchInfo {
   name: string;
@@ -25,16 +29,31 @@ const SEARCHLIST: SearchInfo[] = [
 })
 
 export class SearchComponent {
+
   title = 'The Jedi Archives';
+  category = '';
+  results = '';
   searchUrl = '';
   searchoption: SearchInfo = {
     name: '',
     option: ''
   };
   searches = SEARCHLIST;
+  constructor(
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
+  searchData(option: string): void {
+      //Create the api url
+      this.searchUrl = 'https://swapi.co/api/'+ option + '?search=' + searchoption.name.toUpperCase();
 
-  onSelect(search): void {
-    this.searchUrl = 'https://swapai.co/api/' + search.option;
+      // Make the HTTP request:
+      this.http.get(this.searchUrl).subscribe(data => {
+        // Read the result field from the JSON response.
+        this.results = data['results'];
+      },
+        err => {console.log('Something went awry!');
+      });
+    }
   }
-}

@@ -1,21 +1,16 @@
-<div class="search" *ngIf="search.option === 'people'">
-  <span class="label">Character:</span>
-  <input type="text" [(ngModel)]="character.name" placeholder="C-3PO">
+<div class="search" *ngIf="router.url === '/search/people'">
+  <input type="text" [(ngModel)]="searchoption.name" placeholder="Enter the character">
 </div>
-<!---
-<div class="search" *ngIf="this.router.url === '/search/planets'">
-  <span class="label">Planet:</span>
-  <input type="text" [(ngModel)]="planet.name" placeholder="Onderon">
+<div class="search" *ngIf="router.url === '/search/planets'">
+  <input type="text" [(ngModel)]="searchoption.name" placeholder="Enter the planet">
 </div>
-<div class="search" *ngIf="this.router.url === '/search/species'">
-  <span class="label">Species:</span>
-  <input type="text" [(ngModel)]="species.name" placeholder="Wookiee">
+<div class="search" *ngIf="router.url === '/search/species'">
+  <input type="text" [(ngModel)]="searchoption.name" placeholder="Enter the species">
 </div>
-<div class="search" *ngIf="this.router.url === '/search/starships'">
-  <span class="label">Starship Name:</span>
-  <input type="text" [(ngModel)]="starship.name" placeholder="Star Destroyer">
+<div class="search" *ngIf="router.url === '/search/starships'">
+  <input type="text" [(ngModel)]="searchoption.name" placeholder="Enter the ship">
 </div>
-<div class="search" *ngIf="this.router.url === '/search/vehicles'">
-  <span class="label">Vehicle:</span>
-  <input type="text" [(ngModel)]="vehicle.name" placeholder="Speeder">
-</div> --->
+<div class="search" *ngIf="router.url === '/search/vehicles'">
+  <input type="text" [(ngModel)]="searchoption.name" placeholder="Enter the vehicle">
+</div>
+<button (click)="searchData(searchoption.option)">Use the Force</button>
