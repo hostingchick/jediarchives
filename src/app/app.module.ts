@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import 'rxjs/add/operator/map'
 
 import { SearchComponent } from './search.component';
 import { CharacterDetailComponent } from './character-detail.component';
@@ -17,7 +18,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
+    HttpModule,
     RouterModule.forRoot([
   {
     path: 'search/:option',

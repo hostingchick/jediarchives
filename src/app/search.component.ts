@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Http, Headers } from '@angular/http';
 
 import { Characters } from './characters';
 import { Planets } from './planets';
@@ -31,29 +31,33 @@ const SEARCHLIST: SearchInfo[] = [
 export class SearchComponent {
 
   title = 'The Jedi Archives';
-  category = '';
-  results = '';
+  results: any;
   searchUrl = '';
   searchoption: SearchInfo = {
     name: '',
     option: ''
   };
   searches = SEARCHLIST;
+  characters: Characters[];
+  charResult: Characters;
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: Http
   ) {}
 
-  searchData(option: string): void {
+  searchData(search, question) {
       //Create the api url
-      this.searchUrl = 'https://swapi.co/api/'+ option + '?search=' + searchoption.name.toUpperCase();
+      this.searchUrl = 'https://swapi.co/api'+ search.replace('/search','') + '?search=' + question.toUpperCase();
 
       // Make the HTTP request:
-      this.http.get(this.searchUrl).subscribe(data => {
-        // Read the result field from the JSON response.
-        this.results = data['results'];
-      },
-        err => {console.log('Something went awry!');
-      });
+      return this.http.get(this.searchUrl)
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.results = JSON.stringify(data['results']);
+          return JSON.parse(this.results);
+         },
+        err => { console.log('Something went awry!'); }
+      );
     }
   }

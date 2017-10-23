@@ -13,4 +13,10 @@
 <div class="search" *ngIf="router.url === '/search/vehicles'">
   <input type="text" [(ngModel)]="searchoption.name" placeholder="Enter the vehicle">
 </div>
-<button (click)="searchData(searchoption.option)">Use the Force</button>
+<button (click)="searchData(router.url, searchoption.name)">Use the Force</button>
+<div>
+
+  {{searchUrl}}
+  <br />
+  {{results}}
+</div>
