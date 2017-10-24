@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
+import { Form } from '@angular/forms'
 
 import { Characters } from './characters';
 import { Planets } from './planets';
@@ -32,6 +33,7 @@ export class SearchComponent {
 
   title = 'The Jedi Archives';
   results: any;
+  subResults: any;
   searchUrl = '';
   searchoption: SearchInfo = {
     name: '',
@@ -54,10 +56,25 @@ export class SearchComponent {
       .map(res => res.json())
       .subscribe(
         data => {
-          this.results = JSON.parse(data.results);
-          return this.results;
+          this.results = data.results;
+          console.log(this.results);
+          return JSON.stringify(this.results);
          },
         err => { console.log('Something went awry!'); }
       );
     }
+
+    searchSubData(url) {
+        // Make the HTTP request:
+        return this.http.get(url)
+        .map(res => res.json())
+        .subscribe(
+          data => {
+            this.subResults = data.subResults;
+            console.log(this.subResults);
+            return JSON.stringify(this.subResults);
+           },
+          err => { console.log('Something went awry!'); }
+        );
+      }
   }

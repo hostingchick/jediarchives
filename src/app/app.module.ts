@@ -6,13 +6,11 @@ import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map'
 
 import { SearchComponent } from './search.component';
-import { CharacterDetailComponent } from './character-detail.component';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CharacterDetailComponent,
     SearchComponent
   ],
   imports: [

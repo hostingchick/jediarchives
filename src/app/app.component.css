@@ -3,50 +3,46 @@
   margin: auto;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .menu {
   display: block;
   width: 100%;
-  margin: 5px;
+  margin: 5px 0px;
   text-align: center;
 }
 
-.menu span {
+
+.menu span a {
   display: inline-block;
   background-color: #770707;
   color: #fff;
-  border-radius: 5px;
   padding: 10px 15px;
   font-weight: bold;
   font-size: large;
   width: 100%;
   border: 1px solid #000;
-}
-
-.menu span a {
   text-decoration: none;
   color: #fff;
   text-weight: bold;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .menu span:hover a {
-  text-decoration: none;
-  color: #000;
-  text-weight: bold;
   text-transform: uppercase;
-}
-
-.menu span:hover {
   text-decoration: none;
   background-color: #fff;
   color: #770707;
   text-weight: bold;
-  text-transform: uppercase;
   border: 1px solid #000;
+  width: 100%;
 }
 
+
 input {
-  border-radius: 5px;
   border-color: #000000;
   padding: 10px 15px;
   width: 100%;
@@ -54,27 +50,20 @@ input {
 
 button {
   width: auto;
-  position: relative;
-  float: right;
   padding: 15px 25px;
   background-color: #770707;
   color: #fff;
-  border-radius: 5px;
   font-weight: bold;
   font-size: large;
   text-transform: uppercase;
   border-color: #000;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .search {
   width: 100%;
   margin-top: 25px;
-}
-
-.results {
-  margin: 25px;
-  width: 100%;
+  display: inline-block;
 }
 
 .label {
@@ -82,10 +71,50 @@ button {
   display: inline;
 }
 
-.dark-modal .modal-content {
-      background-color: #292b2c;
-      color: white;
-    }
-    .dark-modal .close {
-      color: white;
-    }
+.display {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.display h1 {
+  padding: 10px 15px;
+  text-align: center;
+  color: #fff;
+  background-color: blue;
+  marin-top: 0px;
+}
+
+dl {
+  width: 100%;
+  display: inline-block;
+}
+
+dt {
+  text-align: left;
+	vertical-align: middle;
+	padding: 5px 15px;
+	color: #fff;
+	background-color: #6c7373;
+	position: relative;
+	float: left;
+	width: 30%;
+	font-weight: bold;
+  white-space: nowrap;
+  margin: 5px;
+}
+
+dd {
+  vertical-align: middle;
+	padding: 5px 2px;
+	color: #36566D;
+	position: relative;
+	float: left;
+	margin: 5px;
+	width: 60%;
+  white-space: nowrap;
+
+}
+
+dd a {
+  width: 100%;
+}
