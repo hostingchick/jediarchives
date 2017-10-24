@@ -1,8 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div id="wrapper">
-  <h1>Welcome to {{title}}!</h1>
-  <p>Please select a category you would like to search.</p>
-
+  <h1>{{title}}</h1>
+  <p>Our archives are the most detailed in the galaxy.</p>
+  <p>To begin your search click on the category below.</p>
+<!-- get the categories and route to the search page -->
   <div class="menu" *ngFor="let search of searches">
     <span><a [routerLink]="['search', search.option]">{{search.name}}</a></span>
   </div>

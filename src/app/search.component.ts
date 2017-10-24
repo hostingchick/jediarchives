@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
-import { Form } from '@angular/forms'
+import { Form } from '@angular/forms';
 
 import { Characters } from './characters';
 import { Planets } from './planets';
@@ -33,14 +33,13 @@ export class SearchComponent {
 
   title = 'The Jedi Archives';
   results: any;
-  subResults: any;
+  noResults: number;
   searchUrl = '';
   searchoption: SearchInfo = {
     name: '',
     option: ''
   };
   searches = SEARCHLIST;
-  noResults = '';
   characters: Characters[];
   charResult: Characters;
   constructor(
@@ -49,22 +48,25 @@ export class SearchComponent {
   ) {}
 
   searchData(search, question) {
-      //Create the api url
+
+        //Create the api url
       this.searchUrl = 'https://swapi.co/api'+ search.replace('/search','') + '?search=' + question.toUpperCase();
       // Make the HTTP request:
       return this.http.get(this.searchUrl)
       .map(res => res.json())
       .subscribe(
         data => {
-          if(data) {
-            this.results = data.results;
-            this.noResults = (data.length > 0) ? '' : 'Nothing to see here!';
-            console.log(this.noResults);
-            console.log(this.results);
-            return JSON.stringify(this.results);
-          }
+          this.results = data.results;
+          this.noResults = data.results.length;
+          console.log(this.results);
+          return JSON.stringify(this.results);
       },
         err => { console.log('Something went awry!'); }
       );
     }
+
+    startOver() {
+      this.router.navigate(['./']);
+    }
+
   }

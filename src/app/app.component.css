@@ -1,19 +1,27 @@
+/*fill the screen if on a smaller mobile device*/
+
+@media screen and (max-width: 600px) {
+  #wrapper { width: 100%;}
+}
+
 #wrapper {
-  width: 40%;
+  width: 60%;
   margin: auto;
 }
 
+/*Set the width to make it all line up with sizing and to use the same font */
 * {
     box-sizing: border-box;
+    font-family: 'Allerta Stencil', sans-serif;
 }
 
+/*Menu to select which category you want to search for */
 .menu {
   display: block;
   width: 100%;
-  margin: 5px 0px;
+  margin: 25px 0px;
   text-align: center;
 }
-
 
 .menu span a {
   display: inline-block;
@@ -41,7 +49,7 @@
   width: 100%;
 }
 
-
+/* form elements */
 input {
   border-color: #000000;
   padding: 10px 15px;
@@ -60,20 +68,29 @@ button {
   margin-top: 10px;
 }
 
+/*div tags separated for each section of the app */
 .search {
   width: 100%;
   margin-top: 25px;
   display: inline-block;
 }
 
-.label {
-  width: 30%;
-  display: inline;
-}
-
 .display {
   width: 100%;
-  margin-top: 25px;
+}
+
+/*layout and headers tags */
+div {
+  text-align: center;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+p {
+  margin: 5px 0px;
 }
 
 .display h1 {
@@ -81,40 +98,75 @@ button {
   text-align: center;
   color: #fff;
   background-color: blue;
-  marin-top: 0px;
 }
 
+/*list that displays results of search */
 dl {
-  width: 100%;
   display: inline-block;
+  width: 100%;
+  border: 1px solid #6c7373;
 }
 
 dt {
   text-align: left;
 	vertical-align: middle;
-	padding: 5px 15px;
+	padding: 5px 5px;
 	color: #fff;
 	background-color: #6c7373;
-	position: relative;
-	float: left;
-	width: 30%;
 	font-weight: bold;
-  white-space: nowrap;
-  margin: 5px;
+  white-space: normal;
+  width: 100%;
 }
 
 dd {
   vertical-align: middle;
-	padding: 5px 2px;
+	padding: 5px 5px;
 	color: #36566D;
-	position: relative;
-	float: left;
 	margin: 5px;
-	width: 60%;
-  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+  white-space: normal;
 
 }
 
 dd a {
   width: 100%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
