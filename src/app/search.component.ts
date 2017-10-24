@@ -43,7 +43,7 @@ export class SearchComponent {
   characters: Characters[];
   charResult: Characters;
   constructor(
-    private router: Router,
+    public router: Router,
     private http: Http
   ) {}
 
