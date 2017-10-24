@@ -1,26 +1,78 @@
 <!-- Search Options -->
+<form #searchForm="ngForm" name="searchForm">
+  <div class="search" *ngIf="router.url === '/search/people'">
+    <input type="text" id="person" name="person" #person="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the character name" required minlength="3">
+    <div *ngIf="person.errors && person.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="person.errors.required">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="person.errors.minlength">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
 
-<div class="search" *ngIf="router.url === '/search/people'">
-  <input type="text" id="searchoption.name" name="searchoption.name" #name="ngModel" [(ngModel)]="searchoption.name">
-</div>
-<div class="search" *ngIf="router.url === '/search/planets'">
-  <input type="text" id="searchoption.name" name="searchoption.name" required #name="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the planet">
-</div>
-<div class="search" *ngIf="router.url === '/search/species'">
-  <input type="text" id="searchoption.name" name="searchoption.name" required #name="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the species">
-</div>
-<div class="search" *ngIf="router.url === '/search/starships'">
-  <input type="text" id="searchoption.name" name="searchoption.name" required #name="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the ship">
-</div>
-<div class="search" *ngIf="router.url === '/search/vehicles'">
-  <input type="text" id="searchoption.name" name="searchoption.name" required #name="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the vehicle">
-</div>
-<div >
-<button type="submit" (click)="searchData(router.url, searchoption.name)">Use the Force</button>
-</div>
+  <div class="search" *ngIf="router.url === '/search/planets'">
+    <input type="text" id="planet" name="planet" #planet="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the planet" required minlength="3">
+    <div *ngIf="planet.errors && planet.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="planet.errors.required">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="planet.errors.minlength">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="search" *ngIf="router.url === '/search/species'">
+    <input type="text" id="species" name="species" #species="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the species" required minlength="3">
+    <div *ngIf="species.errors && species.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="species.errors.required">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="species.errors.minlength">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="search" *ngIf="router.url === '/search/starships'">
+    <input type="text" id="starship" name="starship" #starship="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the ship" required minlength="3">
+    <div *ngIf="starship.errors && planet.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="planet.errors.required">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="planet.errors.minlength">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="search" *ngIf="router.url === '/search/vehicles'">
+    <input type="text" id="vehicle" name="vehicle" #vehicle="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the vehicle" required minlength="3">
+    <div *ngIf="vehicle.errors && vehicle.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="vehicle.errors.required">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="vehicle.errors.minlength">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div>
+  <button type="submit" [disabled]="!searchForm.form.valid" (click)="searchData(router.url, searchoption.name)">Use the Force</button>
+  </div>
+
 
 <!-- Results of Search -->
 <div *ngFor="let x of results" class="display">
+
   <div *ngIf="router.url === '/search/people'">
   <h1>Showing details for {{x.name}}</h1>
   <dl>
@@ -71,11 +123,6 @@
     <dt>Language</dt>
     <dd>{{x.language}}</dd>
 
-    <dt>Homeworld</dt>
-    <dd>{{x.homeworld}}</dd>
-
-    <dt>People</dt>
-    <dd><a *ngFor='let p of x.people' href="{{p}}" target="_blank">{{p}}<br /></a></dd>
   </dl>
 </div>
 <div *ngIf="router.url === '/search/planets'" class="display">
@@ -101,9 +148,6 @@
 
     <dt>Population</dt>
     <dd>{{x.population}}</dd>
-
-    <dt>Residents</dt>
-    <dd><a *ngFor='let r of x.residents' href="{{r}}" target="_blank">{{r}}<br /></a></dd>
   </dl>
 </div>
 <div *ngIf="router.url === '/search/starships'" class="display">
@@ -175,7 +219,8 @@
 
         <dt>Vehicle Class</dt>
         <dd>{{x.vehicle_class}}</dd>
-
       </dl>
     </div>
+    <button (click)="resetForm()">Continue Searching the Archives</button>
 </div>
+</form>
