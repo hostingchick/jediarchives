@@ -1,5 +1,4 @@
 {
     "appService.showBuildDuringDeployPrompt": false,
-    "appService.defaultWebAppToDeploy": "/subscriptions/5676f280-8642-4b77-bfe7-96b75569f2ee/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/jedi-archives",
     "appService.deploySubpath": ""
 }
