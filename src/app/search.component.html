@@ -1,0 +1,232 @@
+
+<!-- Search Options -->
+<form #searchForm="ngForm" name="searchForm">
+  <div class="search" *ngIf="router.url === '/search/people'">
+    <input type="text" id="person" name="person" #person="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the character name" required minlength="3">
+    <div *ngIf="person.errors && person.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="person.errors['required']">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="person.errors['minlength']">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="search" *ngIf="router.url === '/search/planets'">
+    <input type="text" id="planet" name="planet" #planet="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the planet" required minlength="3">
+    <div *ngIf="planet.errors && planet.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="planet.errors['required']">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="planet.errors['minlength']">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="search" *ngIf="router.url === '/search/species'">
+    <input type="text" id="species" name="species" #species="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the species" required minlength="3">
+    <div *ngIf="species.errors && species.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="species.errors['required']">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="species.errors['minlength']">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="search" *ngIf="router.url === '/search/starships'">
+    <input type="text" id="starship" name="starship" #starship="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the ship" required minlength="3">
+    <div *ngIf="starship.errors && starship.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="starship.errors['required']">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="starship.errors['minlength']">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="search" *ngIf="router.url === '/search/vehicles'">
+    <input type="text" id="vehicle" name="vehicle" #vehicle="ngModel" [(ngModel)]="searchoption.name" placeholder="Enter the vehicle" required minlength="3">
+    <div *ngIf="vehicle.errors && vehicle.touched">
+      <h1>I have a bad feeling about this!</h1>
+      <div *ngIf="vehicle.errors['required']">
+        Due to galactic law you must enter something in the search field.
+      </div>
+      <div *ngIf="vehicle.errors['minlength']">
+        Due to galactic law you must enter at least three characters.
+      </div>
+    </div>
+  </div>
+
+  <div>
+  <button type="submit" id="searchBtn" [disabled]="!searchForm.valid" (click)="searchData(router.url, searchoption.name); searchForm.reset();" onclick="openModal.style.display='block'">Use the Force</button>
+  </div>
+  <!-- Results of Search in Modal Window -->
+  <div id="openModal" class="modal">
+    <div class="modal-content">
+      <div *ngIf="noResults === 0">
+        <h2>Nothing to see here!</h2>
+        <p>Please resume your search by clicking below. If you feel this is an error please email: <a href="mailto:hostingchick@gmail.com?Archives%20Error">the jedi historian</a>
+      </div>
+      <div *ngFor="let x of results">
+        <div *ngIf="router.url === '/search/people'" class="display">
+          <h1>Showing details for {{x.name}}</h1>
+          <dl>
+            <dt>Height (cm)</dt>
+            <dd>{{x.height}}</dd>
+
+            <dt>Hair Color</dt>
+            <dd>{{x.hair_color}}</dd>
+
+            <dt>Skin Color</dt>
+            <dd>{{x.skin_color}}</dd>
+
+            <dt>Eye Color</dt>
+            <dd>{{x.eye_color}}</dd>
+
+            <dt>Birth Year</dt>
+            <dd>{{x.birth_year}}</dd>
+
+            <dt>Gender</dt>
+            <dd>{{x.gender}}</dd>
+
+          </dl>
+        </div>
+        <div *ngIf="router.url === '/search/species'" class="display">
+          <h1>Showing details for {{x.name}}</h1>
+          <dl>
+            <dt>Classification</dt>
+            <dd>{{x.classification}}</dd>
+
+            <dt>Designation</dt>
+            <dd>{{x.designation}}</dd>
+
+            <dt>Average Height (cm)</dt>
+            <dd>{{x.average_height}}</dd>
+
+            <dt>Skin Colors</dt>
+            <dd>{{x.skin_colors}}</dd>
+
+            <dt>Hair Colors</dt>
+            <dd>{{x.hair_colors}}</dd>
+
+            <dt>Eye Colors</dt>
+            <dd>{{x.eye_colors}}</dd>
+
+            <dt>Average Lift Span (years)</dt>
+            <dd>{{x.average_lifespan}}</dd>
+
+            <dt>Language</dt>
+            <dd>{{x.language}}</dd>
+
+          </dl>
+        </div>
+        <div *ngIf="router.url === '/search/planets'" class="display">
+          <h1>Showing details for {{x.name}}</h1>
+          <dl>
+            <dt>Rotation Period (hours)</dt>
+            <dd>{{x.rotation_period}}</dd>
+
+            <dt>Orbital Period (days)</dt>
+            <dd>{{x.orbital_period}}</dd>
+
+            <dt>Diameter (meters)</dt>
+            <dd>{{x.diameter}}</dd>
+
+            <dt>Climate</dt>
+            <dd>{{x.climate}}</dd>
+
+            <dt>Terrain</dt>
+            <dd>{{x.terrain}}</dd>
+
+            <dt>Surface Water (%)</dt>
+            <dd>{{x.surface_water}}</dd>
+
+            <dt>Population</dt>
+            <dd>{{x.population}}</dd>
+          </dl>
+        </div>
+        <div *ngIf="router.url === '/search/starships'" class="display">
+          <h1>Showing details for {{x.name}}</h1>
+            <dl>
+              <dt>Model</dt>
+              <dd>{{x.model}}</dd>
+
+              <dt>Manufacturer</dt>
+              <dd>{{x.manufacturer}}</dd>
+
+              <dt>Cost in Credits</dt>
+              <dd>{{x.cost_in_credits}}</dd>
+
+              <dt>Length</dt>
+              <dd>{{x.length}}</dd>
+
+              <dt>Max Atmospheric Speed</dt>
+              <dd>{{x.max_atmosphering_speed}}</dd>
+
+              <dt>Crew</dt>
+              <dd>{{x.crew}}</dd>
+
+              <dt>Passengers Capacity</dt>
+              <dd>{{x.passengers}}</dd>
+
+              <dt>Cargo Capacity</dt>
+              <dd>{{x.cargo_capacity}}</dd>
+
+              <dt>Consumables</dt>
+              <dd>{{x.consumables}}</dd>
+
+              <dt>Hyperdrive Rating</dt>
+              <dd>{{x.hyperdrive_rating}}</dd>
+
+              <dt>MGLT</dt>
+              <dd>{{x.MGLT}}</dd>
+
+              <dt>Starship Class</dt>
+              <dd>{{x.starship_class}}</dd>
+            </dl>
+        </div>
+        <div *ngIf="router.url === '/search/vehicles'" class="display">
+          <h1>Showing details for {{x.name}}</h1>
+            <dl>
+              <dt>Model</dt>
+              <dd>{{x.model}}</dd>
+
+              <dt>Manufacturer</dt>
+              <dd>{{x.manufacturer}}</dd>
+
+              <dt>Cost in Credits</dt>
+              <dd>{{x.cost_in_credits}}</dd>
+
+              <dt>Length</dt>
+              <dd>{{x.length}}</dd>
+
+              <dt>Crew</dt>
+              <dd>{{x.crew}}</dd>
+
+              <dt>Passengers Capacity</dt>
+              <dd>{{x.passengers}}</dd>
+
+              <dt>Cargo Capacity</dt>
+              <dd>{{x.cargo_capacity}}</dd>
+
+              <dt>Consumables</dt>
+              <dd>{{x.consumables}}</dd>
+
+              <dt>Vehicle Class</dt>
+              <dd>{{x.vehicle_class}}</dd>
+            </dl>
+        </div>
+      </div>
+      <button type="button" class="close" (click)="startOver()" onclick="openModal.style.display='none'">Continue Searching the Archives</button>
+    </div>
+  </div>
+</form>
